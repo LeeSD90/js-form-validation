@@ -11,17 +11,17 @@
     <body>
         <form>
           <label for="email-input">Email</label>
-          <input type="email" id="email-input">
+          <input type="email" id="email-input" onblur="validate(this)">
           <label for="email-confirmation-input">Email Confirmation</label>
-          <input type="email" id="email-confirmation-input">
+          <input type="email" id="email-confirmation-input" onblur="validate(this)">
           <label for="country-input">Country</label>
-          <input type="text" id="country-input">
+          <input type="text" id="country-input" onblur="validate(this)">
           <label for="zip-input">Zip (5 digits)</label>
-          <input type="text" id="zip-input">
+          <input type="text" id="zip-input" onblur="validate(this)">
           <label for="password-input">Password</label>
-          <input type="password" id="password-input">
+          <input type="password" id="password-input" onblur="validate(this)">
           <label for="password-confirmation-input">Password Confirmation</label>
-          <input type="password" id="password-confirmation-input">
+          <input type="password" id="password-confirmation-input" onblur="validate(this)">
         </form>
     </body>
 
