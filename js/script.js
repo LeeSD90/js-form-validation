@@ -51,7 +51,7 @@ const validateEmailConfirmation = (e) => {
 }
 
 const validateCountry = (e) => {
-  return (e.value.length > 2 && e.value.length < 15 && isNaN(e.value));
+  return (e.value.length > 2 && e.value.length < 20 && isNaN(e.value));
 }
 
 const validateZip = (e) => {
@@ -59,7 +59,7 @@ const validateZip = (e) => {
 }
 
 const validatePassword = (e) => {
-  console.log("Validate password");
+  return (e.value.length > 7 && e.value.length < 16);
 }
 
 const validatePasswordConfirmation = (e) => {
