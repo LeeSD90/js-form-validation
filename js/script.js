@@ -47,7 +47,7 @@ const validateEmail = (e) => {
 }
 
 const validateEmailConfirmation = (e) => {
-  console.log("validate email confirmation");
+  return (e.value === document.getElementById("email-input").value);
 }
 
 const validateCountry = (e) => {
