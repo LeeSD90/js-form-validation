@@ -51,11 +51,11 @@ const validateEmailConfirmation = (e) => {
 }
 
 const validateCountry = (e) => {
-  console.log("Validate country");
+  return (e.value.length > 2 && e.value.length < 15 && isNaN(e.value));
 }
 
 const validateZip = (e) => {
-  console.log("Validate zip");
+  return (e.value.length === 5 && !isNaN(e.value))
 }
 
 const validatePassword = (e) => {
