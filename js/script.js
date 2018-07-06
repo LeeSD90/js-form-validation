@@ -55,7 +55,7 @@ const validateCountry = (e) => {
 }
 
 const validateZip = (e) => {
-  return (e.value.length === 5 && !isNaN(e.value))
+  return (e.value.length === 5 && !isNaN(e.value));
 }
 
 const validatePassword = (e) => {
