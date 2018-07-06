@@ -1,58 +1,67 @@
 const validate = (e) => {
-  switch(e.id){
+  const valid = (function(e) {
+    switch(e.id) {
     case 'email-input':
-      validateEmail();
-      break;
+      return validateEmail(e);
     case 'email-confirmation-input':
-      validateEmailConfirmation();
-      break;
+      return validateEmailConfirmation(e);
     case 'country-input':
-      validateCountry();
-      break;
+      return validateCountry(e);
     case 'zip-input':
-      validateZip();
-      break;
+      return validateZip(e);
     case 'password-input':
-      validatePassword();
-      break;
+      return validatePassword(e);
     case 'password-confirmation-input':
-      validatePasswordConfirmation();
-      break;
+      return validatePasswordConfirmation(e);
     default:
-      break;
+      return null;
+    }
+  })(e);
+
+  if(isEmpty(e) || !valid) {
+    setInvalid(e);
+  }
+  else {
+    setValid(e);
   }
 }
 
-const validateEmail = () => {
-  const emailRegExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-  const emailInput = document.getElementById("email-input");
-
-  if(emailInput.value.length === 0 || !emailRegExp.test(emailInput.value)){
-    emailInput.classList.remove("valid");
-    emailInput.classList.add("invalid"); 
-  } 
-  else { 
-    emailInput.classList.add("valid");
-    emailInput.classList.remove("invalid"); 
-  }
+const isEmpty = (e) => {
+  return e.value.length === 0;
 }
 
-const validateEmailConfirmation = () => {
-  console.log("Validate email confirmation");
+const setValid = (e) => {
+  e.classList.add("valid");
+  e.classList.remove("invalid"); 
 }
 
-const validateCountry = () => {
+const setInvalid = (e) => {
+  e.classList.remove("valid");
+  e.classList.add("invalid"); 
+}
+
+const validateEmail = (e) => {
+  const emailRegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+  return emailRegExp.test(e.value);
+}
+
+const validateEmailConfirmation = (e) => {
+  console.log("validate email confirmation");
+}
+
+const validateCountry = (e) => {
   console.log("Validate country");
 }
 
-const validateZip = () => {
+const validateZip = (e) => {
   console.log("Validate zip");
 }
 
-const validatePassword = () => {
+const validatePassword = (e) => {
   console.log("Validate password");
 }
 
-const validatePasswordConfirmation = () => {
+const validatePasswordConfirmation = (e) => {
   console.log("Validate password confirmation");
 }
