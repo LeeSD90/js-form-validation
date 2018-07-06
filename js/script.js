@@ -63,5 +63,5 @@ const validatePassword = (e) => {
 }
 
 const validatePasswordConfirmation = (e) => {
-  console.log("Validate password confirmation");
+  return (e.value === document.getElementById("password-input").value);
 }
